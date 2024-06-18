@@ -22,7 +22,6 @@ if __name__ == "__main__":
     print(f'{pipeline_name:*^100}')
 
 
-    obj1 = DataReductionPipeline()
-    obj1.Pipeline()
+    DataReductionPipeline.Pipeline()
 
 

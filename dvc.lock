@@ -1,0 +1,30 @@
+schema: '2.0'
+stages:
+  Data_Download_Pipeline:
+    cmd: python src\audio_testing\pipelines\data_download_pipeline.py
+    deps:
+    - path: src\audio_testing\pipelines\data_download_pipeline.py
+      hash: md5
+      md5: 9fe51b1ad6a8fda0b3a1fdcfa9a2e9ed
+      size: 798
+    - path: yaml_files/paths_config.yaml
+      hash: md5
+      md5: 2c566eb9f65c39e199d7d77847edfb75
+      size: 915
+    outs:
+    - path: artifacts
+      hash: md5
+      md5: f65db491d3b0e66443cc13a6ba249942.dir
+      size: 115409625
+      nfiles: 835
+  Data_Processing_Pipeline:
+    cmd: python src/audio_testing/pipelines/data_redemption_pipeline.py
+    deps:
+    - path: src/audio_testing/pipelines/data_redemption_pipeline.py
+      hash: md5
+      md5: 23a7ec626a018c32cf604de1d4d7232e
+      size: 789
+    - path: yaml_files/paths_config.yaml
+      hash: md5
+      md5: 2c566eb9f65c39e199d7d77847edfb75
+      size: 915

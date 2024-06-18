@@ -1,32 +1,31 @@
 stages:
   Data_Download_Pipeline:
-    cmd: python src/audio_testing/pipeline/data_download_pipeline.py
+    cmd: python src\audio_testing\pipelines\data_download_pipeline.py
     deps:
-      - src/audio_testing/pipeline/data_download_pipeline.py
-      - paths_config.yaml
+      - src\audio_testing\pipelines\data_download_pipeline.py
+      - yaml_files/paths_config.yaml
     outs:
-      - artifacts/saved_data
-  
+      - artifacts
 
-  Data_Processing_Pipeline:
-    cmd: python src/audio_testing/pipeline/data_redemption_pipeline.py
-    deps:
-      - src/audio_testing/pipeline/data_redemption_pipeline.py
-      - paths_config.yaml
-    params:
-      - SAVE_FORMAT
-      - SAVE_DF_NAME
-    outs:
-      - artifacts/redemption_data
 
-      
-  Data_Reduction_Pipeline:
-    cmd: python src/audio_testing/pipeline/data_reduction_pipeline.py
-    deps:
-     - src/audio_testing/pipeline/data_reduction_pipeline.py
-     - paths_config.yaml
-    outs:
-     - artifacts/redemption_data
+  # Data_Processing_Pipeline:
+  #   cmd: python src/audio_testing/pipelines/data_redemption_pipeline.py
+  #   deps:
+  #     - src/audio_testing/pipelines/data_redemption_pipeline.py
+  #     - yaml_files/paths_config.yaml
+  #   outs:
+  #     - artifacts
+  #   # params:
+  #   #   - SAVE_FORMAT
+  #   #   - SAVE_DF_NAME
+
+  # Data_Reduction_Pipeline:
+  #   cmd: python src/audio_testing/pipelines/data_reduction_pipeline.py
+  #   deps:
+  #    - src/audio_testing/pipelines/data_reduction_pipeline.py
+  #    - yaml_files/paths_config.yaml
+
 
 
 # - src/audio_testing/implement/data_download_implement.py
+
