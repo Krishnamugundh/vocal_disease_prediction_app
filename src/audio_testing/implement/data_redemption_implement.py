@@ -65,7 +65,7 @@ class DataRedemption():
             'ID': r'ID\s+(\S+)',
             'Age': r'Age:\s+(\d+)',
             'Gender': r'Gender:\s+(\w+)',
-            'Diagnosis': r'Diagnosis:\s+(.+)',
+            # 'Diagnosis': r'Diagnosis:\s+(.+)',
             'Occupation status': r'Occupation status:\s+(.+)',
             'VHI Score': r'Voice Handicap Index \(VHI\) Score:\s+(\d+)',
             'RSI Score': r'Reflux Symptom Index \(RSI\) Score:\s+(\d+)',
