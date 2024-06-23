@@ -1,4 +1,5 @@
 # Class definition for dimension reduction
+import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -13,6 +14,8 @@ from audio_testing.DataTypes.data_entity import DataReductionInfo
 class Dimension_Reduction():
     def __init__(self, configs:DataReductionInfo ):
         self.data_saved_at = f"{configs.save_df_at + configs.save_df_name + '.' +configs.save_format}"
+        self.reduced_df_dir = configs.reduced_df
+        self.save_reduced_data = f"{self.reduced_df_dir + configs.save_df_name + '.' +configs.save_format}"
         self.df:pd.DataFrame = pd.read_hdf(Path(self.data_saved_at),'df_001')
         self.target_length = configs.reduction_size
         self.key = configs.df_key
@@ -81,5 +84,9 @@ class Dimension_Reduction():
         # Apply the reduction function to the 'Signal' column
         self.df['Reduced_Signal'] = self.df['Signal'].apply(lambda x: self.reduce_array_with_average(x))
 
-        self.df.to_hdf(self .data_saved_at, key=self.key, mode='w')
-        print(f"The Reduced_Signal has been created and saved to {self.data_saved_at}")
+        if not os.path.exists(self.reduced_df_dir):
+            os.makedirs(self.reduced_df_dir)
+            print(f"{self.reduced_df_dir} doesn't not exist. Thus creating it.")
+        
+        self.df.to_hdf(self.save_reduced_data, key=self.key, mode='w')
+        print(f"The Reduced_Signal has been created and saved to {self.save_reduced_data}")

@@ -1,11 +1,12 @@
-.vscodk
+.vscode
+backspace
 detection_env
 gesture.py
 ~$itial observation.docx
 tempCodeRunnerFile.py
 Initial Observation.docx
 src/audio_detections.egg-info
-/artifacts
 .vscode/settings.json
-saved_models/
+artifacts/saved_models/
+
 

@@ -13,8 +13,8 @@ class Train_Model():
         self.val_data = None
         self.test_data = None
         self.data_configs = Parameters_Configurations().data_redemption_configuration()
-        self.save_config = Parameters_Configurations().model_saving_configruation()
         self.params = Parameters_Configurations().model_training_configuration()
+        self.save_config = Parameters_Configurations().model_saving_configruation()
     
     def get_data(self) -> None:
 

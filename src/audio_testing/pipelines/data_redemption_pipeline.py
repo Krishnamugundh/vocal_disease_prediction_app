@@ -23,6 +23,4 @@ class DataRedemptionPipeline():
 if __name__ == '__main__':
     print(f"{pipeline_name:*^100}")
 
-    configs = Parameters_Configurations().data_redemption_configuration()
-
-    df:pd.DataFrame =  DataRedemption(configs).retreive_data()
+    x: pd.DataFrame = DataRedemptionPipeline.data_in_dataframe()

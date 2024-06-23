@@ -9,7 +9,6 @@ class DataReductionPipeline:
 
     def Pipeline():
         # print(f"{pipeline_name:*^100}")
-
         configs = Parameters_Configurations().data_redemption_configuration()
 
         obj1 = Dimension_Reduction(configs)
@@ -20,7 +19,6 @@ class DataReductionPipeline:
 
 if __name__ == "__main__":
     print(f'{pipeline_name:*^100}')
-
 
     DataReductionPipeline.Pipeline()
 

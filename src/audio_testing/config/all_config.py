@@ -53,6 +53,7 @@ class Parameters_Configurations:
         return DataReductionInfo(
                 data_path = data_redem_path.data_path,
                 save_df_at = data_redem_path.save_df_at,
+                reduced_df = data_redem_path.save_reduced_data,
                 save_df_name = data_redem_path.save_df_name,
                 save_format = data_redem_path.save_format,
                 df_key = data_redem_path.df_save_key,

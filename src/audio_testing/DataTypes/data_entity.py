@@ -17,6 +17,7 @@ class DataReductionInfo:
     """
     data_path:Path
     save_df_at:Path
+    reduced_df:Path
     save_df_name:str
     save_format: str
     reduction_size:int
