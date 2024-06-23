@@ -13,7 +13,7 @@ stages:
     deps:
       - src/audio_testing/pipelines/data_redemption_pipeline.py
       - yaml_files/paths_config.yaml
-      - artifacts/zipped/voice-icar-federico-ii-database-1.0.0
+      - artifacts/zipped
     outs:
       - artifacts/redeemed_data/
     # params:
@@ -35,6 +35,7 @@ stages:
       - src/audio_testing/pipelines/model_training_pipeline.py
       - yaml_files/paths_config.yaml
       - artifacts/reduced_data/
+      - artifacts/redeemed_data/
       - yaml_files/params.yaml
     # params:
     #   - num_epochs

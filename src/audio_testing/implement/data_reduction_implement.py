@@ -15,10 +15,10 @@ class Dimension_Reduction():
     def __init__(self, configs:DataReductionInfo ):
         self.data_saved_at = f"{configs.save_df_at + configs.save_df_name + '.' +configs.save_format}"
         self.reduced_df_dir = configs.reduced_df
-        self.save_reduced_data = f"{self.reduced_df_dir + configs.save_df_name + '.' +configs.save_format}"
-        self.df:pd.DataFrame = pd.read_hdf(Path(self.data_saved_at),'df_001')
-        self.target_length = configs.reduction_size
         self.key = configs.df_key
+        self.save_reduced_data = f"{self.reduced_df_dir + configs.save_df_name + '.' +configs.save_format}"
+        self.df:pd.DataFrame = pd.read_hdf(Path(self.data_saved_at),self.key)
+        self.target_length = configs.reduction_size
         
     def __str__(self) -> str:
         return (

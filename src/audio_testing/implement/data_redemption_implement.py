@@ -2,6 +2,7 @@
 import os
 import re
 import wfdb
+import warnings
 import numpy as np 
 import pandas as pd
 # from pathlib import Path
@@ -107,9 +108,7 @@ class DataRedemption():
 
             all_patients_info = []
 
-            # os.chdir(self.curr_data_dir)
-            # Loop through each .hea file in the directory
-            print(f"Reading records from {self.curr_data_dir}")
+            
             for filename in os.listdir(self.curr_data_dir):
                 if filename.endswith('.hea'):
                     record_path = os.path.join(self.curr_data_dir, filename.replace('.hea',''))
@@ -123,12 +122,10 @@ class DataRedemption():
                     # Converts the signals into a single array for processing
                     signal_array = record.p_signal.reshape(-1)
 
-                    # ------------------------------------------------------------------------------
-                    # ------------------------------------------------------------------------------
-
                     # Extracting the corresponding patient's other details from txt file.
                     # Construct the full path to the file
-                    file_path = os.path.join(self.curr_data_dir, filename)
+                    
+                    file_path = os.path.join(self.curr_data_dir, filename.replace('.hea','-info.txt'))
                     
                     # Read the text file
                     with open(file_path, 'r') as file:
@@ -145,14 +142,16 @@ class DataRedemption():
                     
                     # Append the parsed information to the list
                     all_patients_info.append(patient_info)
-
-
+                
                     
-            print("All data has been Successfully loaded into All_records")
+            # print("All data has been Successfully loaded into All_records")
             self.df1 = pd.DataFrame(all_patients_info)
-            print("Data has been stored into a dataframe and returned to the variable assigned")
+            # print("Data has been stored into a dataframe and returned to the variable assigned")
         except Exception as F:
             print(f"<--------------Something is wrong - msg:{F}--------------------->")
+
+        with warnings.catch_warnings(action="ignore"):
+            self.df1['diagnoses'][self.df1['diagnoses']=='hyperkineti dysphonia'] = "hyperkinetic dysphonia"
         return self.df1
         
         # --------------------------------------------------------------- #
