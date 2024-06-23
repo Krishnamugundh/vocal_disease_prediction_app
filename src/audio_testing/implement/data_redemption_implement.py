@@ -142,8 +142,6 @@ class DataRedemption():
                     patient_info['Signal'] = np.array(signal_array)
                     patient_info['diagnoses'] = diagnose
                     
-                    # ------------------------------------------------------------------------------
-                    # ------------------------------------------------------------------------------
                     
                     # Append the parsed information to the list
                     all_patients_info.append(patient_info)
